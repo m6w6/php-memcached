@@ -72,7 +72,7 @@ array(1) {
   ["127.0.0.1:3434"]=>
   array(2) {
     ["key"]=>
-    string(0) ""
+    string(3) "val"
     ["foo"]=>
     string(3) "bar"
   }
@@ -80,11 +80,9 @@ array(1) {
 client_id=[%s]: Stat key=[foobar]
 array(1) {
   ["127.0.0.1:3434"]=>
-  array(2) {
-    ["key"]=>
-    string(6) "foobar"
-    ["foo"]=>
-    string(3) "bar"
+  array(1) {
+    ["foobar"]=>
+    string(5) "value"
   }
 }
 client_id=[%s]: Client quit

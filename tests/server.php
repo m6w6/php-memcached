@@ -79,10 +79,14 @@ $server->on (Memcached::ON_SET,
 $server->on (Memcached::ON_STAT,
              function ($client_id, $key, array &$values = null) {
                  echo "client_id=[$client_id]: Stat key=[$key]" . PHP_EOL;
-                 $values = [
-                    "key" => $key,
-                    "foo" => "bar",
-                 ];
+                 if ($key) {
+                     $values = "value";
+                 } else {
+                     $values = [
+                        "key" => "val",
+                        "foo" => "bar",
+                     ];
+                 }
                  return Memcached::RESPONSE_SUCCESS;
              });
 
