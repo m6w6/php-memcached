@@ -544,7 +544,7 @@ protocol_binary_response_status s_stat_handler (const void *cookie, const void *
 			ZEND_HASH_FOREACH_STR_KEY_VAL(Z_ARRVAL_P(zarray), key, val)
 			{
 				zend_string *val_str = zval_get_string(val);
-				retval = response_handler(cookie, key->val, key->len, val_str->val, val_str->len);
+				retval = response_handler(cookie, key ? key->val : NULL, key ? key->len : 0, val_str->val, val_str->len);
 				if (retval != PROTOCOL_BINARY_RESPONSE_SUCCESS) {
 					break;
 				}

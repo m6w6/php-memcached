@@ -41,6 +41,9 @@ var_dump($cache->getStats("foobar"));
 $cache->quit();
 
 memcached_server_stop($server);
+
+# ensure all output from subprocess are catched
+usleep(100000);
 ?>
 Done
 --EXPECTF--
