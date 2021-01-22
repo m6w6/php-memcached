@@ -533,7 +533,7 @@ protocol_binary_response_status s_stat_handler (const void *cookie, const void *
 			retval = response_handler(cookie, NULL, 0, NULL, 0);
 		} else {
 			zval *zarray = &zstats;
-			zend_string *key;
+			zend_string *hkey;
 			zval *val;
 
 			ZVAL_DEREF(zarray);
@@ -541,10 +541,10 @@ protocol_binary_response_status s_stat_handler (const void *cookie, const void *
 				convert_to_array(zarray);
 			}
 
-			ZEND_HASH_FOREACH_STR_KEY_VAL(Z_ARRVAL_P(zarray), key, val)
+			ZEND_HASH_FOREACH_STR_KEY_VAL(Z_ARRVAL_P(zarray), hkey, val)
 			{
 				zend_string *val_str = zval_get_string(val);
-				retval = response_handler(cookie, key ? key->val : NULL, key ? key->len : 0, val_str->val, val_str->len);
+				retval = response_handler(cookie, hkey ? hkey->val : key, hkey ? hkey->len : key_len, val_str->val, val_str->len);
 				if (retval != PROTOCOL_BINARY_RESPONSE_SUCCESS) {
 					break;
 				}
