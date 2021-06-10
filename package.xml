@@ -176,6 +176,7 @@ Fixes
 	<file role='test' name='server.inc'/>
 	<file role='test' name='server.php'/>
 	<file role='test' name='memcachedserver.phpt'/>
+	<file role='test' name='memcachedserver6.phpt'/>
   </dir>
  </dir>
  </contents>
